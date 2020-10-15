@@ -1,9 +1,7 @@
-class HomesController < ApplicationController
-
+class HomeController < ApplicationController
   def top
   end
 
   def about
   end
-
 end
