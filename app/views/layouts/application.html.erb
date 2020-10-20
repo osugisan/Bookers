@@ -23,13 +23,13 @@
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
                   <li>
-                    <%= link_to " Home", user_path(@user),class: "glyphicon glyphicon-home" %>
+                    <%= link_to " Home", user_path(current_user),class: "glyphicon glyphicon-home" %>
                   </li>
                   <li>
                     <%= link_to " Users", users_path, class: "glyphicon glyphicon-user" %>
                   </li>
                   <li>
-                    <%= link_to " Books", "#", class: "glyphicon glyphicon-book" %>
+                    <%= link_to " Books", books_path, class: "glyphicon glyphicon-book" %>
                   </li>
                   <li>
                     <%= link_to " logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %>
@@ -56,13 +56,15 @@
 
     </header>
 
-    <body>
+    <p id="notice">
+      <%= notice %>
+    </p>
+
+    <main>
       <div class="container">
-          <p id="notice"></p>
         <%= yield %>
       </div>
-    </body>
-
+    </main>
     <footer>
       <div class="row">
         <div class="col-xs-3 col-xs-offset-9">CopyRight Infratop.inc</div>
