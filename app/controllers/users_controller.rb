@@ -33,7 +33,7 @@ before_action :baria_user, only: [:edit, :update]
   end
 
   def baria_user
-    unless User.find(params[:id]).to_s == current_user.id
+    unless (params[:id]).to_i == current_user.id
     redirect_to user_path(current_user)
     end
   end
