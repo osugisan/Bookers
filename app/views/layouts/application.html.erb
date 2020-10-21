@@ -56,15 +56,19 @@
 
     </header>
 
-    <p id="notice">
-      <%= notice %>
-    </p>
+    <body>
+      <div class="row">
+        <% flash.each do |key, value| %>
+        <% end %>
+        <p id="notice">
+          <p><%= notice %></p>
+        </p>
+      </div>
 
-    <main>
       <div class="container">
         <%= yield %>
       </div>
-    </main>
+    </body>
     <footer>
       <div class="row">
         <div class="col-xs-3 col-xs-offset-9">CopyRight Infratop.inc</div>

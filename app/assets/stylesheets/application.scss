@@ -25,10 +25,21 @@ body {
   padding-top: 50px;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
+header {
+  color: white;
 }
 
-header{
-  color: white;
+header .navbar-left span {
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.note {
+  color: green;
+  margin: 0 27px;
+  padding: 0 15px;
+}
+
+.field {
+  margin-bottom: 10px;
 }

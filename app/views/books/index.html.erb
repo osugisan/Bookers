@@ -1,15 +1,16 @@
+<%= render 'books/message', book: @book %>
 <div class="row">
   <div class="col-xs-3">
     <h2>User info</h2>
     <%= render 'users/info', user: current_user %>
 
     <h2>New book</h2>
-    <%= render 'books/form', book: @new_book %>
+    <%= render 'books/form', book: @book %>
 
   </div>
   <div class=" col-xs-9">
-    <h2>Users</h2>
-    <table class="table">
+    <h2>Books</h2>
+    <table class="table table-hover table-inverse">
       <thead>
         <tr>
           <th></th>
