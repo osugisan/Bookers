@@ -41,7 +41,7 @@ before_action :baria_user, only: [:edit, :update]
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to books_path
+    redirect_to books_path, notice: 'You have deleteded book successfully.'
   end
 
   private
