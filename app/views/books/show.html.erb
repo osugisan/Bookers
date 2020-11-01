@@ -41,7 +41,7 @@
 						</p>
 						<% end %>
 					</td>
-					<!-- コメント機能 -->
+					<!-- コメント数 -->
 					<td>
 						<span>コメント数: <%= @book.book_coments.count %></span>
 					</td>
@@ -51,6 +51,12 @@
 					<% end %>
 				</tr>
 			</table>
+			<%= form_with (model: [:@book, :@book_comment], local: true) do |f| %>
+			<div class="col-xs-9">
+				<%= f.text_area :comment, rows:'5' %>
+			</div>
+			<%= f,submit "送信" %>
+			<% end %>
 
 	</div>
 </div>
