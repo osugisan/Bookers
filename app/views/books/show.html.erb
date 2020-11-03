@@ -73,7 +73,6 @@
 	</div>
 
 	<div class="col-xs-9">
-		<%= render 'books/message', book: @book_comment %>
 		<%= form_with(model:[@book, @book_comment], local: true) do |f| %>
 			<%= f.text_area :comment, rows:'4', class: "col-xs-7" %>
 			<%= f.submit "送信" %>

@@ -8,8 +8,27 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
 
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :followed
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :introduction, length: { maximum: 50 }
 
   attachment :profile_image
+
+  def follow(other_user)
+    unless self == other_user
+      active_relationships.create(followed_id: other_user.id)
+    end
+  end
+
+  def unfollow(other_user)
+    avtive_relationships.find_by(followed_id: other_user.id).detroy
+  end
+
+  def following?(other_user)
+    followings.include?(other_user)
+  end
 end

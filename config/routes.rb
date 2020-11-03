@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#top'
   devise_for :users
   resources :users, only: [:show, :edit, :update, :index]
+
   resources :books do
     resources :book_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
