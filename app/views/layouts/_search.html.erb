@@ -2,7 +2,7 @@
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <%= f.text_field :search %>
     <%= f.select :option, options_for_select([["User", "1"],["Book","2"]]) %>
-    <%= f.select :choice, options_for_select([["完全一致"]])%>
+    <%= f.select :choice, options_for_select([["完全一致", "1"],["前方一致検索", "2"],["後方一致検索", "3"],["部分一致検索", "4"]])%>
     <%= f.submit :検索 %>
   <% end %>
 <% end %>
