@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit, :update, :index] do
     resource :relationships, only: [:create, :destroy]
-    get :followings, on: :member
+    get :follows, on: :member
     get :followers, on: :member
   end
 

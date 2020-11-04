@@ -18,16 +18,6 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  def follow(other_user)
-    unless self == other_user
-      active_relationships.create(followed_id: other_user.id)
-    end
-  end
-
-  def unfollow(other_user)
-    avtive_relationships.find_by(followed_id: other_user.id).detroy
-  end
-
   def following?(other_user)
     followings.include?(other_user)
   end
