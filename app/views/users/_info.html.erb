@@ -9,7 +9,18 @@
         <th>introduction</th>
         <th><%= user.introduction %></th>
       </tr>
+      <tr>
+        <th>follows</th>
+        <th><%= link_to user.followings.count, follows_user_path(user) %></th>
+      </tr>
+      <tr>
+        <th>followers</th>
+        <th><%= link_to user.followers.count, followers_user_path(user) %></th>
+      </tr>
     </table>
+
+    <%= render 'relationships/follow_btn', user: user%>
+
     <div class="row">
       <% if user.id == current_user.id %>
         <%= link_to "", edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
