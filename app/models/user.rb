@@ -21,4 +21,13 @@ class User < ApplicationRecord
   def following?(other_user)
     followings.include?(other_user)
   end
+
+  def User.search(search, user_or_book)
+    if search.empty?
+      User.all
+    elsif user_or_book == "1"
+      User.where(['name LIKE ?', "#{search}"])
+    end
+  end
+
 end
