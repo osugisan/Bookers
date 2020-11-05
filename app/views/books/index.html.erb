@@ -33,24 +33,12 @@
             <% end %>
           </td>
           <td><%= book.body %></td>
-          <td>
-            <!-- いいね機能 -->
-            <% if book.favorited_by?(current_user) %>
-						<p>
-							<%= link_to book_favorites_path(book), method: :delete do %>
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-								<%= book.favorites.count %>
-							<% end %>
-						</p>
-						<% else %>
-						<p>
-							<%= link_to book_favorites_path(book), method: :post do %>
-								<span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
-								<%= book.favorites.count %>
-							<% end %>
-						</p>
-						<% end %>
+
+          <!-- いいね機能 -->
+          <td id ="favorites_btn_<%= book.id %>" >
+          <%= render 'favorites/favorites_btn', book: book %>
           </td>
+
           <!-- コメント数 -->
 					<td>
 						<span>コメント数: <%= book.book_comments.count %></span>
