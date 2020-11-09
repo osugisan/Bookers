@@ -28,3 +28,7 @@
         <%= link_to "", user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
       <% end %>
     </div>
+
+    <% if user.id != current_user.id %>
+      <%= link_to "チャットする", chat_path(user) %>
+    <% end %>
